@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details - RIZZPHONE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-mobile-screen-button"></i> RIZZPHONE
+        </div>
+        
+        <div class="nav-right-group">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search phone..." onkeypress="handleSearch(event)">
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+            </ul>
+            
+            <div id="nav-user-area">
+                <button class="btn-login" onclick="toggleLoginModal()">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumbs">
+        <a href="shop.html">
+            <i class="fa-solid fa-arrow-left-long"></i> Back
+        </a>
+        <span class="separator">/</span>
+        <span class="separator">Shop</span>
+        <span class="separator">/</span>
+        <span id="breadcrumbName">Product</span>
+    </div>
+
+    <section class="product-detail-container">
+        <div class="product-images">
+            <img id="detailImg" src="" alt="Detail HP">
+        </div>
+        <div class="product-info">
+            <h1 id="detailName">Loading...</h1>
+            <h2 class="price" id="detailPrice">Rp 0</h2>
+            <p style="color:#b0b0b0; margin:20px 0; font-size: 0.95rem; line-height: 1.6;">
+                Enjoy high-level performance with official warranty. 
+                Every unit is shipped with safe wooden packing and full insurance.
+            </p>
+            
+            <div class="variants">
+                <h4>Color Options:</h4>
+                <div class="color-options">
+                    <div class="color-box black selected" onclick="selectColor(this)" title="Black"></div>
+                    <div class="color-box silver" onclick="selectColor(this)" style="background:#e0e0e0;" title="Silver"></div>
+                    <div class="color-box gold" onclick="selectColor(this)" style="background:#f3e5b3;" title="Gold"></div>
+                </div>
+            </div>
+            
+            <div class="actions" style="margin-top:40px;">
+                <button class="btn-cta" onclick="buyNow()">
+                    <i class="fa-solid fa-cart-shopping" style="margin-right:10px;"></i> Buy Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleLoginModal()">&times;</span>
+            <h2 id="authTitle" style="color:var(--accent-gold)">Member Login</h2>
+            <form id="authForm" onsubmit="handleAuth(event)">
+                <input type="text" id="usernameInput" placeholder="Username" class="modal-input" required>
+                <input type="password" id="passwordInput" placeholder="Password" class="modal-input" required>
+                <button type="submit" id="authBtn" class="btn-cta" style="width:100%">LOGIN</button>
+            </form>
+            <div class="auth-toggle" id="authToggleText">
+                Don't have an account? <span onclick="switchAuthMode()">Register here</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="modal" style="z-index: 3100;">
+        <div class="modal-content" style="width: 300px;">
+            <h3 style="color:white; margin-bottom:10px;">Confirm Logout</h3>
+            <p style="color:#ccc;">Are you sure you want to log out?</p>
+            <div class="confirm-buttons">
+                <button class="btn-confirm-no" onclick="confirmLogout(false)">Cancel</button>
+                <button class="btn-confirm-yes" onclick="confirmLogout(true)">Yes, Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+    <script>
+        function selectColor(element) {
+            document.querySelectorAll('.color-box').forEach(box => box.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+    </script>
+</body>
+</html>

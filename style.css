@@ -1,0 +1,658 @@
+/* --- LUXURY & ELEGANT THEME (FINAL LOGO UPDATE) --- */
+
+/* IMPORT FONT PREMIUM */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500&display=swap');
+
+:root {
+    /* Palette Mewah */
+    --bg-dark: #050505;          
+    --bg-card: rgba(25, 25, 25, 0.6); 
+    --text-main: #ffffff;
+    --text-muted: #b0b0b0;
+    
+    /* Warna Emas Champagne */
+    --accent-gold: #d4af37;      
+    --accent-glow: rgba(212, 175, 55, 0.3);
+    --gold-gradient: linear-gradient(135deg, #f3e5b3 0%, #d4af37 50%, #b48811 100%);
+    
+    --nav-glass: rgba(5, 5, 5, 0.85);
+    --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    margin: 0; padding: 0;
+    line-height: 1.7;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+}
+
+h1, h2, h3, .section-title {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+}
+
+/* --- NAVBAR FIXED (LEBAR & RAPI) --- */
+.navbar {
+    background-color: var(--nav-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 15px 40px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: var(--border-subtle);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- LOGO MEWAH (IKON + TEKS) --- */
+.logo { 
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; 
+    font-weight: 700; 
+    font-style: italic;
+    
+    /* Flexbox agar Ikon dan Teks sejajar */
+    display: flex;
+    align-items: center; 
+    gap: 12px; 
+    
+    /* Warna Emas Gradient */
+    background: var(--gold-gradient); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    
+    /* Bayangan Emas Halus */
+    text-shadow: 0px 0px 30px rgba(212, 175, 55, 0.3);
+    
+    min-width: 150px;
+    cursor: default;
+}
+
+/* Style khusus Ikon di Logo */
+.logo i {
+    font-size: 24px;
+    font-style: normal;
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+}
+
+/* Grup Kanan: Search + Menu + Login */
+.nav-right-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links { 
+    list-style: none; display: flex; gap: 25px; margin: 0; padding: 0;
+}
+.nav-links a { 
+    text-decoration: none; color: var(--text-muted); 
+    font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: 0.4s; 
+}
+.nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+
+/* Search Bar */
+.search-bar {
+    background: rgba(255,255,255,0.05); 
+    border-radius: 50px; 
+    padding: 5px 20px; 
+    border: var(--border-subtle); 
+    display: flex; align-items: center; 
+    transition: 0.3s;
+    width: 220px;
+}
+.search-bar i {
+    color: var(--text-muted); font-size: 14px; margin-right: 10px; transition: 0.3s;
+}
+.search-bar input { 
+    background: transparent; border: none; color: white; 
+    outline: none; font-family: 'Poppins'; width: 100%; font-size: 13px;
+}
+.search-bar:focus-within { border-color: var(--accent-gold); box-shadow: 0 0 10px var(--accent-glow); }
+.search-bar:focus-within i { color: var(--accent-gold); }
+
+/* Tombol Login Navbar */
+.btn-login { 
+    background: transparent; color: var(--accent-gold); 
+    border: 1px solid var(--accent-gold); padding: 6px 20px; 
+    border-radius: 50px; cursor: pointer; transition: 0.3s; 
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+}
+.btn-login:hover { background: var(--accent-gold); color: black; box-shadow: 0 0 15px var(--accent-glow); }
+
+/* --- HERO SECTION (FLOATING 3D LUXURY) --- */
+.hero {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 80px 10%; min-height: 75vh; /* Sedikit lebih tinggi */
+    position: relative; overflow: hidden;
+    perspective: 1000px; /* Wajib ada untuk efek 3D */
+}
+
+/* Glow Latar Belakang (Diperhalus) */
+.hero::before {
+    content: ''; position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+    width: 500px; height: 500px; background: var(--accent-gold);
+    filter: blur(200px); opacity: 0.1; z-index: -2;
+}
+
+.hero-text h2 { 
+    font-size: 4rem; line-height: 1.1; margin-bottom: 25px;
+    background: linear-gradient(to bottom, #ffffff, #a0a0a0); 
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-text p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; font-weight: 300; }
+
+/* Container Gambar */
+/* --- HERO IMAGE (LIQUID BLOB SHAPE) --- */
+/* --- HERO IMAGE (3D CONTAINER) --- */
+.hero-image {
+    position: relative;
+    z-index: 1;
+    width: 500px; /* Ukuran wadah 3D */
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Efek Glow di belakang 3D */
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    filter: drop-shadow(0 0 50px rgba(212, 175, 55, 0.1));
+}
+
+/* Kustomisasi Model Viewer */
+model-viewer {
+    width: 100%;
+    height: 100%;
+    --poster-color: transparent;
+    transition: 0.3s;
+}
+
+/* Saat disentuh/hover, glow makin terang */
+.hero-image:hover {
+    filter: drop-shadow(0 0 80px rgba(212, 175, 55, 0.4));
+}
+
+/* Background Cahaya di Belakang Blob */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--gold-gradient);
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    z-index: -1;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.hero-image img { 
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; /* Agar gambar tidak gepeng */
+    
+    /* MENGUBAH KOTAK JADI BENTUK ABSTRAK (BLOB) */
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    
+    /* Animasi Perubahan Bentuk */
+    animation: morphing 8s ease-in-out infinite;
+    
+    /* Shadow Emas */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    transition: 0.5s;
+    border: 2px solid rgba(212, 175, 55, 0.5); /* List Emas Tipis */
+}
+
+/* Efek saat mouse diarahkan */
+.hero-image:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    box-shadow: 0 0 40px var(--accent-gold);
+}
+
+/* --- ANIMASI --- */
+/* 1. Animasi Bentuk Cair (Morphing) */
+@keyframes morphing {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+/* 2. Animasi Cahaya Berdenyut */
+@keyframes pulseGlow {
+    0%, 100% { transform: scale(0.9); opacity: 0.2; }
+    50% { transform: scale(1.1); opacity: 0.4; }
+}
+
+/* --- ANIMASI --- */
+/* Animasi HP Naik Turun */
+@keyframes floatPhone {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-25px); } /* Naik 25px */
+}
+
+/* Animasi Bayangan (Mengecil saat HP naik) */
+@keyframes shadowPulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); } /* Memudar dan mengecil */
+}
+
+/* --- BUTTON CTA --- */
+.btn-cta { 
+    background: var(--gold-gradient); color: #000; 
+    padding: 12px 35px; text-decoration: none; border: none; 
+    border-radius: 50px; cursor: pointer; font-weight: 600; 
+    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease; display: inline-block;
+}
+.btn-cta:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4); background: #fff; }
+
+/* --- PRODUCT CARD --- */
+.container { padding: 60px 10%; }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: white; }
+.product-grid { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; }
+.product-card {
+    background: var(--bg-card); padding: 25px; border-radius: 4px;
+    width: 250px; text-align: center; position: relative; 
+    transition: all 0.4s; border: var(--border-subtle);
+}
+.product-card:hover { 
+    transform: translateY(-10px); border-color: var(--accent-gold); 
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+}
+/* --- UPDATE: GAMBAR PRODUK TRANSPARAN --- */
+.product-card img { 
+    width: 100%; 
+    height: 240px; 
+    
+    /* Agar gambar utuh tidak terpotong */
+    object-fit: contain; 
+    
+    /* REVISI: Ubah background jadi transparent */
+    background: transparent; 
+    
+    padding: 10px;       
+    border-radius: 4px; 
+    margin-bottom: 15px; 
+    
+    /* Opsional: Sedikit brightness agar gambar pop-out */
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3)); 
+    transition: 0.3s;
+}
+.product-card:hover img { filter: brightness(1.1); }
+.product-card h3 { 
+    font-size: 1.2rem; font-weight: 600; margin: 10px 0; color: white; font-family: 'Playfair Display', serif;
+}
+.product-card .price { color: var(--accent-gold); font-size: 1rem; font-weight: 500; }
+
+/* Tombol Detail (Update: Outline Emas) */
+.product-card .btn-detail {
+    display: inline-block; width: 80%; margin-top: 15px; padding: 10px 0;
+    background: transparent; border: 1px solid var(--accent-gold); color: var(--accent-gold);
+    border-radius: 50px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;
+    border-bottom: 1px solid var(--accent-gold); text-decoration: none;
+}
+.product-card .btn-detail i { margin-right: 8px; }
+.product-card .btn-detail:hover {
+    background: var(--accent-gold); color: #000;
+    box-shadow: 0 0 15px var(--accent-glow); transform: translateY(-2px);
+}
+
+.badge { 
+    position: absolute; top: 0; left: 0; background: var(--accent-gold); color: black; 
+    padding: 4px 12px; font-size: 10px; font-weight: bold; text-transform: uppercase; 
+}
+
+/* --- NEWSLETTER FIXED --- */
+.newsletter { 
+    background: #050505; border-top: 1px solid #222; 
+    padding: 80px 20px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.newsletter h3 { 
+    margin-bottom: 30px; font-size: 2rem; color: white; 
+}
+.newsletter-wrapper {
+    position: relative; width: 450px; max-width: 100%; height: 60px;
+}
+.newsletter input { 
+    width: 100%; height: 100%; background: #111; 
+    border: 1px solid #333; color: white; border-radius: 60px; 
+    padding: 0 140px 0 30px; font-family: 'Poppins', sans-serif;
+    font-size: 1rem; outline: none; box-sizing: border-box; transition: 0.3s;
+}
+.newsletter input:focus { border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.15); }
+.newsletter button { 
+    position: absolute; right: 5px; top: 5px; bottom: 5px;
+    padding: 0 30px; border-radius: 50px; border: none; 
+    background: var(--gold-gradient); color: black; font-weight: 700; 
+    font-size: 0.8rem; letter-spacing: 1px; cursor: pointer; transition: 0.3s; z-index: 2; 
+}
+.newsletter button:hover { transform: scale(1.05); background: #fff; box-shadow: 0 0 15px var(--accent-gold); }
+
+/* --- TESTIMONI & FOOTER --- */
+.testimonials { background: #111; padding: 80px 10%; text-align: center; }
+.testimonial-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.testi-card { 
+    background: #1a1a1a; padding: 30px; margin: 10px; 
+    display: inline-block; width: 300px; border-radius: 15px;
+    border-left: 3px solid var(--accent-gold); text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s;
+}
+.testi-card:hover { transform: translateY(-5px); background: #222; }
+.testi-card p { font-size: 0.95rem; color: #ddd; margin-bottom: 15px; }
+.testi-card h4 { color: var(--accent-gold); font-family: 'Poppins', sans-serif; font-weight: 600; margin: 0; }
+
+footer { background: black; color: #444; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; padding: 40px; text-align: center; border-top: 1px solid #111; }
+
+/* MODAL */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 2000; }
+.modal-content { background: #111; border: 1px solid var(--accent-gold); padding: 30px; border-radius: 15px; width: 300px; text-align: center; position: relative; }
+.modal-input { background: #050505; border: 1px solid #333; padding: 12px; color: white; border-radius: 5px; width: 100%; margin-bottom: 10px; box-sizing: border-box; }
+.close { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: white; }
+
+/* Filter Bar */
+.filter-bar { margin-bottom: 40px; text-align: center; }
+.filter-btn { background: transparent; border: none; color: var(--text-muted); padding: 10px 20px; cursor: pointer; margin: 0 5px; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; transition: 0.3s; position: relative; }
+.filter-btn::after { content: ''; display: block; width: 0; height: 1px; background: var(--accent-gold); transition: 0.3s; margin: auto; }
+.filter-btn:hover, .filter-btn.active { color: var(--accent-gold); }
+.filter-btn.active::after { width: 100%; }
+
+/* Breadcrumbs (Navigasi Kembali) */
+.breadcrumbs {
+    padding: 20px 10%; background: linear-gradient(to right, #0a0a0a, #111);
+    border-bottom: 1px solid #222; display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
+}
+.breadcrumbs a { color: var(--text-muted); text-decoration: none; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+.breadcrumbs a:hover { color: white; }
+.breadcrumbs span { color: var(--accent-gold); font-weight: 600; text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+.breadcrumbs .separator { color: #444; font-size: 0.8rem; }
+
+/* Detail Page */
+.product-detail-container { display: flex; gap: 50px; align-items: center; padding: 40px 10%; }
+.product-images img { max-width: 100%; border-radius: 10px; border: var(--border-subtle); }
+.product-info h1 { font-size: 3rem; margin-bottom: 10px; }
+.product-info .price { font-size: 1.8rem; color: var(--accent-gold); }
+.color-box { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #555; display: inline-block; margin-right: 10px; }
+.color-box.selected { border: 2px solid var(--accent-gold); transform: scale(1.1); }
+
+/* --- CUSTOM TOAST NOTIFICATION (PENGGANTI ALERT) --- */
+#toast-container {
+    position: fixed; top: 20px; right: 20px; z-index: 3000;
+    display: flex; flex-direction: column; gap: 10px;
+}
+
+.toast {
+    background: #111; color: white; border-left: 4px solid var(--accent-gold);
+    padding: 15px 25px; border-radius: 4px; min-width: 250px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Poppins', sans-serif; font-size: 0.9rem;
+    animation: slideIn 0.3s forwards, fadeOut 0.5s 3s forwards;
+    opacity: 0; transform: translateX(100%);
+}
+
+.toast i { color: var(--accent-gold); font-size: 1.2rem; }
+
+@keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeOut { to { opacity: 0; transform: translateX(100%); } }
+
+/* --- UPDATE MODAL LOGIN (LEBIH LENGKAP) --- */
+.auth-toggle {
+    margin-top: 15px; font-size: 0.85rem; color: #ccc;
+}
+.auth-toggle span {
+    color: var(--accent-gold); cursor: pointer; font-weight: bold; text-decoration: underline;
+}
+.auth-toggle span:hover { color: white; }
+
+/* --- CUSTOM CONFIRM MODAL (PENGGANTI CONFIRM) --- */
+.confirm-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+.btn-confirm-yes { background: var(--gold-gradient); border: none; padding: 8px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; }
+.btn-confirm-no { background: transparent; border: 1px solid #555; color: #ccc; padding: 8px 20px; border-radius: 50px; cursor: pointer; }
+.btn-confirm-no:hover { border-color: white; color: white; }
+
+/* --- LUXURY CHECKOUT PAGE --- */
+.checkout-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; /* Agar summary sticky bekerja */
+    margin-top: 20px;
+}
+
+/* 1. Bagian Kiri: Formulir */
+.checkout-form {
+    flex: 2; /* Lebar 2/3 */
+    background: #111;
+    border: 1px solid #222;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.checkout-form label {
+    display: block;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.checkout-form .modal-input {
+    width: 100%;
+    background: #080808;
+    border: 1px solid #333;
+    padding: 15px;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-family: 'Poppins';
+    transition: 0.3s;
+}
+
+.checkout-form .modal-input:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+/* 2. Bagian Kanan: Summary (Sticky) */
+.checkout-summary {
+    flex: 1; /* Lebar 1/3 */
+    background: linear-gradient(145deg, #111, #0a0a0a);
+    border: 1px solid var(--accent-gold); /* Border Emas */
+    padding: 30px;
+    border-radius: 15px;
+    position: sticky;
+    top: 100px; /* Menempel saat discroll */
+    text-align: center;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.checkout-summary img {
+    width: 100%;
+    max-width: 180px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #bbb;
+    font-size: 0.9rem;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.total-row span.amount {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Poppins';
+}
+
+/* Info Rekening Box */
+.payment-box {
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px dashed var(--accent-gold);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .checkout-wrapper {
+        flex-direction: column; /* Jadi atas-bawah di HP */
+    }
+    .checkout-summary {
+        width: 100%;
+        position: static; /* Hilangkan sticky di HP */
+        box-sizing: border-box;
+    }
+}
+
+/* --- LUXURY LIVE CHAT WIDGET --- */
+/* 1. Tombol Bulat Melayang */
+.chat-toggle-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--gold-gradient);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer; z-index: 4000;
+    transition: 0.3s;
+    border: 2px solid white;
+}
+.chat-toggle-btn:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--accent-gold); }
+.chat-toggle-btn i { font-size: 28px; color: black; }
+
+/* 2. Jendela Chat (Awalnya Sembunyi) */
+.chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 450px;
+    background: #111;
+    border: 1px solid var(--accent-gold);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    z-index: 3999;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    transform: translateY(20px); opacity: 0; visibility: hidden;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chat-window.active {
+    transform: translateY(0); opacity: 1; visibility: visible;
+}
+
+/* Header Chat */
+.chat-header {
+    background: var(--gold-gradient);
+    padding: 15px;
+    display: flex; justify-content: space-between; align-items: center;
+    color: black;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+.chat-header h4 { margin: 0; font-size: 1rem; display: flex; align-items: center; gap: 8px; }
+.close-chat { cursor: pointer; font-size: 1.2rem; transition: 0.3s; }
+.close-chat:hover { transform: rotate(90deg); color: white; }
+
+/* Area Pesan (Scrollable) */
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex; flex-direction: column; gap: 15px;
+    background: #080808;
+}
+
+/* Bubble Pesan */
+.chat-bubble {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    font-family: 'Poppins', sans-serif;
+}
+.chat-bubble.bot {
+    background: #222;
+    color: #ddd;
+    border-top-left-radius: 0;
+    border: 1px solid #333;
+    align-self: flex-start;
+}
+.chat-bubble.user {
+    background: var(--accent-gold);
+    color: black;
+    border-top-right-radius: 0;
+    align-self: flex-end;
+    font-weight: 500;
+}
+
+/* Input Area */
+.chat-footer {
+    padding: 10px;
+    background: #111;
+    border-top: 1px solid #333;
+    display: flex; gap: 10px;
+}
+.chat-footer input {
+    flex: 1;
+    background: #000;
+    border: 1px solid #333;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    outline: none;
+    font-family: 'Poppins';
+}
+.chat-footer button {
+    background: var(--accent-gold);
+    border: none;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: black;
+    transition: 0.3s;
+}
+.chat-footer button:hover { transform: scale(1.1); background: white; }
+
+/* Responsif HP */
+@media (max-width: 500px) {
+    .chat-window { width: 90%; right: 5%; bottom: 100px; }
+}

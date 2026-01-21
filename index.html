@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIZZSTORE - Welcome</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-mobile-screen-button"></i> RIZZPHONE
+        </div>
+        
+        <div class="nav-right-group">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search phone..." onkeypress="handleSearch(event)">
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+            </ul>
+            
+            <div id="nav-user-area">
+                <button class="btn-login" onclick="toggleLoginModal()">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-text">
+            <h2>Luxury Tech<br>For Everyone</h2>
+            <p>Welcome to the number one premium gadget destination.</p>
+            <a href="#" class="btn-cta" onclick="checkLoginForShop()">Shop Now</a>
+        </div>
+        <div class="hero-image">
+    <div class="hero-image">
+    <model-viewer 
+        src="iphone15.glb"  alt="HP 3D Keren"
+        auto-rotate 
+        camera-controls 
+        shadow-intensity="2"
+        disable-zoom
+        style="width: 100%; height: 100%; --poster-color: transparent;"
+    >
+    </model-viewer>
+</div>
+</div>
+    </header>
+
+    <section id="testi" class="testimonials">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonial-container">
+            <div class="testi-card">
+                <p>"Original product, very fast and safe shipping!"</p>
+                <h4>- Sayid Khaedar</h4>
+            </div>
+            <div class="testi-card">
+                <p>"Friendly service, free wooden packing. Very satisfied."</p>
+                <h4>- Muhammad raffa Putra Dwi Anugrah</h4>
+            </div>
+            <div class="testi-card">
+                <p>"Competitive prices, luxury quality. Highly Recommended!"</p>
+                <h4>- Fannani Arista Pratama</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h3>Newsletter</h3>
+        <div class="newsletter-wrapper">
+            <input type="email" placeholder="Your Email for promo info..." required>
+            <button type="submit">SUBSCRIBE</button>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2026 PhoneStore Exclusive.</p></footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleLoginModal()">&times;</span>
+            <h2 id="authTitle" style="color:var(--accent-gold)">Member Login</h2>
+            
+            <form id="authForm" onsubmit="handleAuth(event)">
+                <input type="text" id="usernameInput" placeholder="Username" class="modal-input" required>
+                <input type="password" id="passwordInput" placeholder="Password" class="modal-input" required>
+                <button type="submit" id="authBtn" class="btn-cta" style="width:100%">LOGIN</button>
+            </form>
+            
+            <div class="auth-toggle" id="authToggleText">
+                Don't have an account? <span onclick="switchAuthMode()">Register here</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="modal" style="z-index: 3100;">
+        <div class="modal-content" style="width: 300px;">
+            <h3 style="color:white; margin-bottom:10px;">Confirm Logout</h3>
+            <p style="color:#ccc;">Are you sure you want to log out?</p>
+            <div class="confirm-buttons">
+                <button class="btn-confirm-no" onclick="confirmLogout(false)">Cancel</button>
+                <button class="btn-confirm-yes" onclick="confirmLogout(true)">Yes, Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

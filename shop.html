@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIZZPHONE - Catalog</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-mobile-screen-button"></i> RIZZPHONE
+        </div>
+        
+        <div class="nav-right-group">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search phone..." onkeyup="searchProduct()">
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+            </ul>
+            
+            <div id="nav-user-area">
+                <button class="btn-login" onclick="toggleLoginModal()">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container" style="padding-top: 40px;">
+        <h2 class="section-title">All Products</h2>
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterProduct('all')">All</button>
+            <button class="filter-btn" onclick="filterProduct('iphone')">iPhone</button>
+            <button class="filter-btn" onclick="filterProduct('samsung')">Samsung</button>
+            <button class="filter-btn" onclick="filterProduct('vivo')">Vivo</button>
+            <button class="filter-btn" onclick="filterProduct('xiaomi')">Xiaomi</button>
+            <button class="filter-btn" onclick="filterProduct('asus')">Asus</button>
+            <button class="filter-btn" onclick="filterProduct('oppo')">Oppo</button>
+        </div>
+        <div id="product-list" class="product-grid"></div>
+    </section>
+
+    <footer><p>&copy; 2026 PhoneStore Exclusive.</p></footer>
+    
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleLoginModal()">&times;</span>
+            <h2 id="authTitle" style="color:var(--accent-gold)">Member Login</h2>
+            <form id="authForm" onsubmit="handleAuth(event)">
+                <input type="text" id="usernameInput" placeholder="Username" class="modal-input" required>
+                <input type="password" id="passwordInput" placeholder="Password" class="modal-input" required>
+                <button type="submit" id="authBtn" class="btn-cta" style="width:100%">LOGIN</button>
+            </form>
+            <div class="auth-toggle" id="authToggleText">
+                Don't have an account? <span onclick="switchAuthMode()">Register here</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="modal" style="z-index: 3100;">
+        <div class="modal-content" style="width: 300px;">
+            <h3 style="color:white; margin-bottom:10px;">Confirm Logout</h3>
+            <p style="color:#ccc;">Are you sure you want to log out?</p>
+            <div class="confirm-buttons">
+                <button class="btn-confirm-no" onclick="confirmLogout(false)">Cancel</button>
+                <button class="btn-confirm-yes" onclick="confirmLogout(true)">Yes, Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
